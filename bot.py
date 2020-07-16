@@ -1,8 +1,9 @@
 import discord
 
 from discord.ext import commands
-from commands import cmd_elpotato
+from commands import cmd_elpotato, cmd_ping
 from events import member_join, member_remove, ready
+
 
 potato = commands.Bot(command_prefix='!el')
 
@@ -23,5 +24,10 @@ async def on_ready():
 
 
 @potato.command()
-async def pootato(ctx):
+async def patato(ctx):
     await cmd_elpotato.run(ctx)
+
+
+@potato.command()
+async def ping(ctx):
+    await cmd_ping.run(ctx, potato.latency)
