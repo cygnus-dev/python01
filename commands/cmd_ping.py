@@ -1,8 +1,11 @@
-from typing import Any, Callable
-
 
 async def run(ctx, latency):
-    await ctx.send(f'pong! ```{calculated_latency(latency)} ms```')
+    await ctx.send(ping_message(latency))
 
 
-calculated_latency: Callable[[Any], int] = lambda latency: round(latency * 1000)
+def ping_message(latency):
+    return f'pong! ```{calculate_latency(latency)} ms```'
+
+
+def calculate_latency(latency):
+    return round(latency * 1000)
