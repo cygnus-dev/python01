@@ -1,32 +1,27 @@
 import discord
-import os
-import settings
-
 
 from discord.ext import commands
+from commands import cmd_ping
+from events import member_join, member_remove, ready
+
+potato = commands.Bot(command_prefix='!')
 
 
-bot = commands.Bot(command_prefix='!')
-
-
-@bot.event
-async def on_ready():
-    print("bot is working!")
-
-
-@bot.event
+@potato.event
 async def on_member_join(member):
-    print(f'{member} has joined the server')
+    member_join.event(member)
 
 
-@bot.event
+@potato.event
 async def on_member_remove(member):
-    print(f'{member} has left the server')
+    member_remove.event(member)
 
 
-@bot.command()
+@potato.event
+async def on_ready():
+    ready.event()
+
+
+@potato.command()
 async def ping(ctx):
-    await ctx.send('Pong!')
-
-
-bot.run(os.getenv("TOKEN"))
+    await cmd_ping.run(ctx)
