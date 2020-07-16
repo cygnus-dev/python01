@@ -6,7 +6,7 @@ import settings
 from discord.ext import commands
 
 
-bot = commands.Bot(command_prefix='>')
+bot = commands.Bot(command_prefix='!')
 
 
 @bot.event
@@ -24,10 +24,9 @@ async def on_member_remove(member):
     print(f'{member} has left the server')
 
 
-# TODO remove this after testing
-@bot.command
+@bot.command()
 async def ping(ctx):
-    print("hello")
+    await ctx.send('Pong!')
 
 
 bot.run(os.getenv("TOKEN"))
