@@ -2,7 +2,7 @@ import discord
 import random
 
 from discord.ext import commands
-from commands import cmd_elpotato, cmd_ping, cmd_8ball, cmd_clear
+from commands import cmd_elpotato, cmd_ping, cmd_8ball, cmd_clear, cmd_subreddit
 from events import member_join, member_remove, ready
 
 potato = commands.Bot(command_prefix='!el ')
@@ -41,3 +41,8 @@ async def _8ball(ctx, *, question):
 @potato.command()
 async def clear(ctx, amount=5):
     await cmd_clear.run(ctx, amount)
+
+
+@potato.command()
+async def sr(ctx, *, topic):
+    await cmd_subreddit.run(ctx, topic)
