@@ -2,7 +2,7 @@ import discord
 import random
 
 from discord.ext import commands
-from commands import cmd_elpotato, cmd_ping, cmd_8ball, cmd_clear, cmd_subreddit
+from commands import cmd_elpotato, cmd_ping, cmd_8ball, cmd_clear, cmd_subreddit, cmd_meme
 from events import member_join, member_remove, ready
 
 potato = commands.Bot(command_prefix='!el ')
@@ -46,3 +46,8 @@ async def clear(ctx, amount=5):
 @potato.command()
 async def subreddit(ctx, *, topic):
     await cmd_subreddit.run(ctx, topic)
+
+
+@potato.command()
+async def meme(ctx):
+    await cmd_meme.run(ctx)
