@@ -39,6 +39,5 @@ async def _8ball(ctx, *, question):
 
 
 @potato.command()
-async def clear(ctx, amount):
+async def clear(ctx, amount=5):
     await cmd_clear.run(ctx, amount)
-
