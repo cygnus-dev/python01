@@ -44,5 +44,5 @@ async def clear(ctx, amount=5):
 
 
 @potato.command()
-async def sr(ctx, *, topic):
+async def subreddit(ctx, *, topic):
     await cmd_subreddit.run(ctx, topic)
