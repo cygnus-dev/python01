@@ -9,7 +9,7 @@ async def run(ctx):
     reddit = praw.Reddit(client_id=os.getenv("REDDIT_CLIENT_ID"),
                          client_secret=os.getenv("REDDIT_CLIENT_SECRET"),
                          user_agent="USERAGENT")
-    random_index = randint(1, 100)
+    random_index = randint(1, 200)
     submissions = reddit.subreddit("memes").hot(limit=random_index)
     await ctx.send(last_submission(submissions).url)
 
