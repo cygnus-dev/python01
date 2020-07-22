@@ -1,3 +1,3 @@
 #!/bin/sh
 
-python3 main.py
+pipenv shell python3 main.py
