@@ -2,16 +2,12 @@
 
 ## This is my first sub heading
 
-### This is my second level subheading
+### To Run Potato bot
+Pre-requisite: python3, pip, pipenv
 
-1. first step
-2. second step
-* sub section 1
-* sub section 2
-
-```this is how you add code examples```
-```python
-
-def something():
-    return "something"
-```
+1. git clone git@github.com:cygnus-dev/python01.git
+2. create a .env file on the root
+* TOKEN=discord-token
+* REDDIT_CLIENT_ID=clientID
+* REDDIT_CLIENT_SECRET=client-secret
+3. ./run.sh
