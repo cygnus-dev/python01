@@ -9,6 +9,7 @@ verify_ssl = true
 discord = "*"
 praw = "*"
 python-dotenv = "*"
+urbandictionary = "*"
 
 [requires]
 python_version = "3.8"

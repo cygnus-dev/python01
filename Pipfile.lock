@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "9345df25dc14f064ec04e11edf9042f9e22e14433987f66a3ca6f9599d939423"
+            "sha256": "af928317820d29454b492c8ea5846b1385497af432026300802b5f32e0b6392a"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -156,6 +156,13 @@
                 "sha256:2def8db7f63bd45c7d19df5df570f3f3dfeb1a1f050869d7036529295db10e62"
             ],
             "version": "==0.17"
+        },
+        "urbandictionary": {
+            "hashes": [
+                "sha256:3435cd5cd75708f47d45a3949265c4a36852d03587c2df973e93f1ef463fb8f5"
+            ],
+            "index": "pypi",
+            "version": "==1.1"
         },
         "urllib3": {
             "hashes": [

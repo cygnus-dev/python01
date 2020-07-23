@@ -2,7 +2,9 @@ import discord
 import random
 
 from discord.ext import commands
-from commands import cmd_elpotato, cmd_ping, cmd_8ball, cmd_clear, cmd_subreddit, cmd_meme, cmd_potatos
+from urbandictionary import UrbanDefinition
+
+from commands import cmd_elpotato, cmd_ping, cmd_8ball, cmd_clear, cmd_subreddit, cmd_meme, cmd_potatos, cmd_urban
 from events import member_join, member_remove, ready
 
 potato = commands.Bot(command_prefix='!el ')
@@ -57,3 +59,6 @@ async def meme(ctx):
 async def potatos(ctx, amount=5):
     await cmd_potatos.run(ctx, amount)
 
+@potato.command()
+async def urban(ctx, *, term):
+    await cmd_urban.run(ctx, term)
