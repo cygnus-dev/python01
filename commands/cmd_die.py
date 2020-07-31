@@ -1,5 +1,7 @@
 import random
 
+import discord
+from discord import embeds
 shit_posts = ['https://www.youtube.com/watch?v=D-UmfqFjpl0',
               'https://www.youtube.com/watch?v=C9oVVBKiWnY',
               'https://www.youtube.com/watch?v=FveF-we6lcE',
@@ -15,8 +17,15 @@ shit_posts = ['https://www.youtube.com/watch?v=D-UmfqFjpl0',
 
 
 async def run(ctx):
-    await ctx.send("```Here you go:```" + (random_shitpost()))
 
+    embed = discord.Embed(
+        Colour=discord.Colour.dark_blue(),
+        title="**Death**",
+        description=(random_shitpost())
+    )
+
+    embed.set_author(name="wtf is dis")
+    await ctx.send(embed=embed)
 
 def random_shitpost():
     return f'{random.choice(shit_posts)}'
