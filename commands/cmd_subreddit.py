@@ -3,8 +3,6 @@ import os
 import discord
 from random import randint
 
-from discord import Embed
-
 
 async def run(ctx, topic):
     reddit = praw.Reddit(client_id=os.getenv("REDDIT_CLIENT_ID"),
@@ -17,15 +15,15 @@ async def run(ctx, topic):
     submission = last_submission(submissions)
     author_name = submission.author.name
 
-    embed: Embed = discord.Embed(
-        Color=0xff4500,
+    embed = discord.Embed(
+        color=discord.Colour.orange(),
         title="***REDDIT***",
         description=submission.url
     )
 
     embed.set_author(name="El service")
     embed.set_image(url=submission.url)
-    embed.set_footer(text="posted by u/" + author_name)
+    embed.set_footer(text="posted by u/" + author_name + ",   from r/" + topic)
 
     await ctx.send(embed=embed)
 
