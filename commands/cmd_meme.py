@@ -16,7 +16,7 @@ async def run(ctx):
     embed = discord.Embed(
         Color=0xff4500,
         title="***MEME***",
-        description="you will enjoy my meme"  ### mask a link behind the title of meme
+        description="enjoy my meme"  ### mask a link behind the title of meme
     )
 
     embed.set_author(name="El service")
