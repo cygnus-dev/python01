@@ -7,23 +7,26 @@ from random import randint
 async def run(ctx, topic):
     reddit = praw.Reddit(client_id=os.getenv("REDDIT_CLIENT_ID"),
                          client_secret=os.getenv("REDDIT_CLIENT_SECRET"),
-                         user_agent="USERAGENT")
+                         user_agent="USER_AGENT")
 
     random_index = randint(1, 100)
     subreddit = reddit.subreddit(topic)
     submissions = subreddit.hot(limit=random_index)
     submission = last_submission(submissions)
     author_name = submission.author.name
+    submission_title = submission.title
+    submission_link = submission.shortlink
+    upvotes = submission.ups
 
     embed = discord.Embed(
-        color=discord.Colour.orange(),
+        color=discord.Colour.dark_orange(),
         title="***REDDIT***",
-        description=submission.url
+        description=":arrow_double_up: : " + str(upvotes)
     )
 
-    embed.set_author(name="El service")
+    embed.set_author(url=submission_link, name=submission_title)
     embed.set_image(url=submission.url)
-    embed.set_footer(text="posted by u/" + author_name + ",   from r/" + topic)
+    embed.set_footer(text="posted on r/" + topic + "  by u/" + author_name)
 
     await ctx.send(embed=embed)
 

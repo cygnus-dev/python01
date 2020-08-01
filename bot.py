@@ -1,9 +1,7 @@
 import discord
 import random
-
 from discord.ext import commands
 from urbandictionary import UrbanDefinition
-
 from commands import cmd_elpotato, cmd_ping, cmd_8ball, cmd_clear, cmd_subreddit, cmd_meme, cmd_potatos, cmd_urban, cmd_die
 from events import member_join, member_remove, ready
 
