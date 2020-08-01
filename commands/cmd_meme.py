@@ -1,8 +1,7 @@
 import praw
 import os
-import random
 import discord
-from discord import embeds
+
 from random import randint
 
 
@@ -11,16 +10,20 @@ async def run(ctx):
                          client_secret=os.getenv("REDDIT_CLIENT_SECRET"),
                          user_agent="USERAGENT")
     random_index = randint(1, 50)
-    submissions = reddit.subreddit("memes").hot(limit=random_index)
+    memes_subreddit = reddit.subreddit("memes")
+    submissions = memes_subreddit.hot(limit=random_index)
+    submission = last_submission(submissions)
+    author_name = submission.author.name
 
     embed = discord.Embed(
-        Color=0xff4500,
+        color=discord.Colour.orange(),
         title="***MEME***",
-        description="enjoy my meme"  ### mask a link behind the title of meme
+        description=submission.url
     )
 
     embed.set_author(name="El service")
-    embed.set_image(url=last_submission(submissions).url)
+    embed.set_image(url=submission.url)
+    embed.set_footer(text="posted by u/" + author_name)
 
     await ctx.send(embed=embed)
 
