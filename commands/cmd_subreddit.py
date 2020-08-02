@@ -16,17 +16,19 @@ async def run(ctx, topic):
     author_name = submission.author.name
     submission_title = submission.title
     submission_link = submission.shortlink
-    upvotes = submission.ups
+    up_votes = submission.ups
+    subreddit_icon = subreddit.collections.subreddit.community_icon
 
     embed = discord.Embed(
         color=discord.Colour.dark_orange(),
         title="***REDDIT***",
-        description=":arrow_double_up: : " + str(upvotes)
+        description=":arrow_double_up: : " + str(up_votes)
     )
 
     embed.set_author(url=submission_link, name=submission_title)
     embed.set_image(url=submission.url)
-    embed.set_footer(text="posted on r/" + topic + "  by u/" + author_name)
+    embed.set_footer(text="posted on r/" + topic + "   |    by u/" + author_name)
+    embed.set_thumbnail(url=str(subreddit_icon))
 
     await ctx.send(embed=embed)
 
