@@ -1,8 +1,7 @@
 import discord
 import random
 from discord.ext import commands
-from urbandictionary import UrbanDefinition
-from commands import cmd_elpotato, cmd_ping, cmd_8ball, cmd_clear, cmd_subreddit, cmd_meme, cmd_potatos, cmd_urban, cmd_die
+from commands import cmd_elpotato, cmd_ping, cmd_8ball, cmd_clear, cmd_subreddit, cmd_meme, cmd_potatos, cmd_urban, cmd_die, cmd_user
 from events import member_join, member_remove, ready
 
 potato = commands.Bot(command_prefix='!el ')
@@ -66,3 +65,8 @@ async def urban(ctx, *, term):
 @potato.command()
 async def die(ctx):
     await cmd_die.run(ctx)
+
+
+@potato.command()
+async def user(ctx, *, user):
+    await cmd_user.run(ctx, user)
