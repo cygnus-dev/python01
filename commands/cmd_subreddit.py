@@ -25,7 +25,7 @@ async def run(ctx, topic):
         description=":arrow_double_up: : " + str(up_votes)
     )
 
-    embed.set_author(url=submission_link, name=submission_title)
+    embed.set_author(url=submission_link, name=submission.title)
     embed.set_image(url=submission.url)
     embed.set_footer(text="posted on r/" + topic + "   |    by u/" + author_name)
     embed.set_thumbnail(url=str(subreddit_icon))
