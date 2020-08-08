@@ -58,8 +58,8 @@ async def potatos(ctx, amount=5):
 
 
 @potato.command()
-async def urban(ctx, *, term):
-    await cmd_urban.run(ctx, term)
+async def urban(ctx):
+    await cmd_urban.run(ctx)
 
 
 @potato.command()
@@ -68,5 +68,5 @@ async def die(ctx):
 
 
 @potato.command()
-async def user(ctx, *, user):
-    await cmd_user.run(ctx, user)
+async def whois(ctx, *, display_name):
+    await cmd_user.run(ctx, display_name)
