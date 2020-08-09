@@ -14,20 +14,16 @@ async def run(ctx):
     memes_subreddit = reddit.subreddit("memes")
     submissions = memes_subreddit.hot(limit=random_index)
     submission = last_submission(submissions)
-    author_name = submission.author.name
-    submission_title = submission.title
-    submission_link = submission.url
-    up_votes = submission.ups
 
     embed = discord.Embed(
         color=discord.Colour.dark_orange(),
         title="***MEME***",
-        description=":arrow_double_up: : " + str(up_votes)
+        description=f':arrow_double_up: : {submission.ups})'
     )
 
-    embed.set_author(url=submission_link, name=submission_title)
-    embed.set_image(url=submission_link)
-    embed.set_footer(text="posted on r/memes " + "   |   posted by u/" + author_name)
+    embed.set_author(url=submission.shortlink, name=submission.title)
+    embed.set_image(url=submission.url)
+    embed.set_footer(text=f'posted on r/memes    |    posted by u/{submission.author.name}')
     embed.set_thumbnail(url="https://styles.redditmedia.com/t5_2qjpg/styles/communityIcon_aek5xr5qwj051.png")
 
     await ctx.send(embed=embed)

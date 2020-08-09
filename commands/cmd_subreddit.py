@@ -13,22 +13,17 @@ async def run(ctx, topic):
     subreddit = reddit.subreddit(topic)
     submissions = subreddit.hot(limit=random_index)
     submission = last_submission(submissions)
-    author_name = submission.author.name
-    submission_title = submission.title
-    submission_link = submission.shortlink
-    up_votes = submission.ups
-    subreddit_icon = subreddit.collections.subreddit.community_icon
 
     embed = discord.Embed(
         color=discord.Colour.dark_orange(),
         title="***REDDIT***",
-        description=":arrow_double_up: : " + str(up_votes)
+        description=":arrow_double_up: : " + str(submission.ups)
     )
 
-    embed.set_author(url=submission_link, name=submission.title)
+    embed.set_author(url=submission.shortlink, name=submission.title)
     embed.set_image(url=submission.url)
-    embed.set_footer(text="posted on r/" + topic + "   |    by u/" + author_name)
-    embed.set_thumbnail(url=str(subreddit_icon))
+    embed.set_footer(text=f'posted on r/{topic}    |    by u/{submission.author.name}')
+    embed.set_thumbnail(url=str(subreddit.collections.subreddit.community_icon))
 
     await ctx.send(embed=embed)
 

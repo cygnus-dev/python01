@@ -20,5 +20,8 @@ async def run(ctx, display_name):
     embed.add_field(name="Account created at", value=account_create_time)
     embed.add_field(name="status", value=member.status.name)
     embed.add_field(name="Account type", value="Bot" if member.bot else "Human")
-
+    embed.add_field(name="Mention", value=member.mention)
+    embed.add_field(name="Nick", value=member.nick)
+    embed.add_field(name="Roles", value=member.roles)
+    embed.add_field(name="Icon url", value=member.avatar_url)
     await ctx.send(embed=embed)
