@@ -20,8 +20,6 @@ async def run(ctx, topic):
         description=":arrow_double_up: : " + str(submission.ups)
     )
 
-
-
     embed.set_author(url=submission.shortlink, name=submission.title)
     embed.set_image(url=submission.url)
     embed.set_footer(text=f'posted on r/{topic}    |    by u/{submission.author.name}')
