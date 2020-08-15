@@ -9,7 +9,7 @@ async def run(ctx, topic):
                          client_secret=os.getenv("REDDIT_CLIENT_SECRET"),
                          user_agent="USER_AGENT")
 
-    random_index = randint(1, 100)
+    random_index = randint(1, 200)
     subreddit = reddit.subreddit(topic)
     submissions = subreddit.hot(limit=random_index)
     submission = last_submission(submissions)
@@ -20,12 +20,18 @@ async def run(ctx, topic):
         description=":arrow_double_up: : " + str(submission.ups)
     )
 
+
+
     embed.set_author(url=submission.shortlink, name=submission.title)
     embed.set_image(url=submission.url)
     embed.set_footer(text=f'posted on r/{topic}    |    by u/{submission.author.name}')
     embed.set_thumbnail(url=str(subreddit.collections.subreddit.community_icon))
+    # embed.add_field(name="sd", value=submission.selftext)
 
-    await ctx.send(embed=embed)
+    if submission.over_18:
+        await ctx.send("**dis over 18 ma dude**")
+    else:
+        await ctx.send(embed=embed)
 
 
 def last_submission(submissions):

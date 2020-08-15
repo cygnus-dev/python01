@@ -81,3 +81,4 @@ async def ok(ctx):
 async def bottle_flip(ctx):
     await cmd_bottle_flip.run(ctx)
 
+

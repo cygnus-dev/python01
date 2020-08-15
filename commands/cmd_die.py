@@ -18,13 +18,13 @@ shit_posts = ['https://www.youtube.com/watch?v=D-UmfqFjpl0',
 
 
 async def run(ctx):
-    embed = discord.Embed(
-        Colour=discord.Colour.dark_blue(),
-        title="**Death**",
-        description=(random_shitpost())
-    )
-
-    embed.set_author(name="wtf is dis")
+    # embed = discord.Embed(
+    #     Colour=discord.Colour.dark_blue(),
+    #     title="**Death**",
+    #     description=(random_shitpost())
+    # )
+    #
+    # embed.set_author(name="wtf is dis")
     await ctx.send("```here you go ```" + random_shitpost())
 
 
