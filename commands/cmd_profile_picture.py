@@ -6,7 +6,7 @@ async def run(ctx, display_name):
 
     embed = discord.Embed(
         color=discord.Colour.dark_blue(),
-        title="",
+        title="ayy lmao",
         description=""
     )
 

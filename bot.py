@@ -1,7 +1,7 @@
 import discord
 import random
 from discord.ext import commands
-from commands import cmd_elpotato, cmd_ping, cmd_8ball, cmd_clear, cmd_subreddit, cmd_ok, cmd_meme, cmd_potatos, cmd_urban, cmd_die, cmd_user, cmd_bottle_flip, cmd_profile_picture
+from commands import cmd_elpotato, cmd_ping, cmd_8ball, cmd_clear, cmd_subreddit, cmd_ok, cmd_meme, cmd_potatos, cmd_urban, cmd_die, cmd_user, cmd_bottle_flip, cmd_profile_picture, cmd_rarded
 from events import member_join, member_remove, ready
 
 potato = commands.Bot(command_prefix='!el ')
@@ -85,3 +85,8 @@ async def bottle_flip(ctx):
 @potato.command(aliases=['P_p'])
 async def profile_picture(ctx, *, display_name):
     await cmd_profile_picture.run(ctx, display_name)
+
+
+@potato.command()
+async def rarded(ctx):
+    await cmd_rarded.run(ctx)

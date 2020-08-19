@@ -1,6 +1,7 @@
 import praw
 import os
 import discord
+import random
 
 from random import randint
 
@@ -10,21 +11,22 @@ async def run(ctx):
                          client_secret=os.getenv("REDDIT_CLIENT_SECRET"),
                          user_agent="USER_AGENT")
 
-    random_index = randint(1, 50)
-    memes_subreddit = reddit.subreddit("memes")
-    submissions = memes_subreddit.hot(limit=random_index)
+    random_index = randint(1, 150)
+    subreddit = reddit.subreddit("okbuddyretard")
+    submissions = subreddit.hot(limit=random_index)
     submission = last_submission(submissions)
 
     embed = discord.Embed(
         color=discord.Colour.dark_orange(),
-        title="***MEME***",
+        title="ok bud..",
         description=f':arrow_double_up: : {submission.ups}'
     )
 
     embed.set_author(url=submission.shortlink, name=submission.title)
     embed.set_image(url=submission.url)
-    embed.set_footer(text=f'posted on r/memes    |    posted by u/{submission.author.name}')
-    embed.set_thumbnail(url="https://styles.redditmedia.com/t5_2qjpg/styles/communityIcon_aek5xr5qwj051.png")
+    embed.set_footer(text=f'posted on r/okbuddyretard   |    posted by u/{submission.author.name}')
+    embed.set_thumbnail(
+        url="https://styles.redditmedia.com/t5_74is2/styles/communityIcon_7s6ixw6m34w31.png?width=256&s=e294b8c3d87167e780ab2d7308050370d2c2c06a")
 
     await ctx.send(embed=embed)
 

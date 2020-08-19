@@ -34,6 +34,9 @@ async def run(ctx, topic):
 
 def last_submission(submissions):
     submission = next(submissions)
+    non_video_submission = submission
     for submission in submissions:
+        if not submission.is_video:
+            non_video_submission = submission
         pass
-    return submission
+    return non_video_submission
