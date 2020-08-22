@@ -10,6 +10,7 @@ discord = "*"
 praw = "*"
 python-dotenv = "*"
 urbandictionary = "*"
+lyricsgenius = "*"
 
 [requires]
 python_version = "3.8"

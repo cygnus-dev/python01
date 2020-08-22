@@ -6,10 +6,10 @@ async def run(ctx, display_name):
 
     embed = discord.Embed(
         color=discord.Colour.dark_blue(),
-        title="ayy lmao",
-        description=""
+        title=f'{member.name} #{member.discriminator}'
     )
-
     embed.set_image(url=member.avatar_url)
 
     await ctx.send(embed=embed)
+
+
