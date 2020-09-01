@@ -1,10 +1,10 @@
 import discord
 import random
 from discord.ext import commands
-from commands import cmd_elpotato, cmd_ping, cmd_8ball, cmd_clear, cmd_subreddit, cmd_ok, cmd_meme, cmd_potatos, cmd_urban, cmd_die, cmd_user, cmd_bottle_flip, cmd_profile_picture, cmd_rarded, cmd_genius
+from commands import cmd_elpotato, cmd_ping, cmd_8ball, cmd_clear, cmd_subreddit, cmd_ok, cmd_meme, cmd_potatos, cmd_urban, cmd_die, cmd_user, cmd_bottle_flip, cmd_profile_picture, cmd_rarded, cmd_genius, cmd_stick_bug
 from events import member_join, member_remove, ready
 
-potato = commands.Bot(command_prefix='!el ')
+potato = commands.Bot(command_prefix='$')
 
 
 @potato.event
@@ -95,3 +95,8 @@ async def rarded(ctx):
 @potato.command()
 async def genius(ctx, *, song):
     await cmd_genius.run(ctx, song)
+
+
+@potato.command()
+async def stick_bug(ctx):
+    await cmd_stick_bug.run(ctx)

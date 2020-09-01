@@ -18,7 +18,6 @@ async def run(ctx):
 
     embed = discord.Embed(
         color=discord.Colour.dark_orange(),
-        title="ok bud..",
         description=f':arrow_double_up: : {submission.ups}'
     )
 
