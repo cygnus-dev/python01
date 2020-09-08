@@ -1,8 +1,5 @@
 import random
 
-import discord
-from discord import embeds
-
 shit_posts = ['https://www.youtube.com/watch?v=D-UmfqFjpl0',
               'https://www.youtube.com/watch?v=C9oVVBKiWnY',
               'https://www.youtube.com/watch?v=FveF-we6lcE',

@@ -1,12 +1,17 @@
 import discord
 import random
 from discord.ext import commands
-from commands import cmd_elpotato, cmd_ping, cmd_8ball, cmd_clear, cmd_subreddit, cmd_ok, cmd_meme, cmd_potatos, cmd_urban, cmd_die, cmd_user, cmd_bottle_flip, cmd_profile_picture, cmd_rarded, cmd_genius, cmd_stick_bug
+from commands import cmd_elpotato, cmd_ping, cmd_8ball, \
+    cmd_subreddit, cmd_ok, cmd_meme, cmd_potatos, \
+    cmd_urban, cmd_die, cmd_user, cmd_bottle_flip, \
+    cmd_profile_picture, cmd_rarded, cmd_genius, \
+    cmd_stick_bug, cmd_clear
 from events import member_join, member_remove, ready
 
 potato = commands.Bot(command_prefix='$')
 
 
+@potato.remove_command('help')
 @potato.event
 async def on_member_join(member):
     member_join.event(member)

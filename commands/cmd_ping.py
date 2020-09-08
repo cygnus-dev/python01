@@ -4,7 +4,7 @@ async def run(ctx, latency):
 
 
 def ping_message(latency):
-    return f'pong! ```{calculate_latency(latency)} ms```'
+    return f':ping_pong: `{calculate_latency(latency)} ms` :ping_pong:'
 
 
 def calculate_latency(latency):
