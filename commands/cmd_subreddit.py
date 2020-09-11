@@ -21,10 +21,12 @@ async def run(ctx, topic):
     )
 
     embed.set_author(url=submission.shortlink, name=submission.title)
-    embed.set_image(url=submission.url)
     embed.set_footer(text=f'posted on r/{topic}    |    by u/{submission.author.name}')
     embed.set_thumbnail(url=str(subreddit.collections.subreddit.community_icon))
-    # embed.add_field(name="sd", value=submission.selftext)
+    if submission.selftext_html is None:
+        embed.set_image(url=submission.url)
+    else:
+        embed.add_field(name=submission.title, value=submission.selftext)
 
     if submission.over_18:
         await ctx.send("**dis over 18 ma dude**")

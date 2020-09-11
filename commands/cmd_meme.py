@@ -22,9 +22,12 @@ async def run(ctx):
     )
 
     embed.set_author(url=submission.shortlink, name=submission.title)
-    embed.set_image(url=submission.url)
-    embed.set_footer(text=f'posted on r/memes    |    posted by u/{submission.author.name}')
+    embed.set_footer(text=f'posted on r/{topic}    |    by u/{submission.author.name}')
     embed.set_thumbnail(url="https://styles.redditmedia.com/t5_2qjpg/styles/communityIcon_aek5xr5qwj051.png")
+    if submission.selftext_html is None:
+        embed.set_image(url=submission.url)
+    else:
+        embed.add_field(name=submission.title, value=submission.selftext)
 
     await ctx.send(embed=embed)
 
