@@ -1,7 +1,7 @@
 import praw
 import os
 import discord
-import random
+
 
 from random import randint
 

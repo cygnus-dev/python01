@@ -82,7 +82,7 @@ async def ok(ctx):
     await cmd_ok.run(ctx)
 
 
-@potato.command(aliases=['bottle flip', 'bf'])
+@potato.command(aliases=['bf'])
 async def bottle_flip(ctx):
     await cmd_bottle_flip.run(ctx)
 
