@@ -1,5 +1,3 @@
-import discord
-from discord.ext import commands
 
 
 async def run(ctx, amount=5):

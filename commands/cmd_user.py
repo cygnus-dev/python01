@@ -8,7 +8,7 @@ async def run(ctx, display_name):
     if member is None:
         embed = discord.Embed(
             color=discord.Colour.dark_blue(),
-            title="Member is not exist"
+            title=f'Member {display_name} is not exist'
         )
 
     else:

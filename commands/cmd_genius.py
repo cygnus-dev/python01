@@ -1,6 +1,5 @@
 import lyricsgenius
 import discord
-from discord import embeds
 
 
 async def run(ctx, song):
