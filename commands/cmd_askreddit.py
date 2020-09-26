@@ -1,7 +1,6 @@
 import praw
 import os
 import discord
-
 from random import randint
 
 
@@ -11,23 +10,17 @@ async def run(ctx):
                          user_agent="USER_AGENT")
 
     random_index = randint(1, 50)
-    memes_subreddit = reddit.subreddit("memes")
-    submissions = memes_subreddit.hot(limit=random_index)
+    subreddit = reddit.subreddit('askreddit')
+    submissions = subreddit.hot(limit=random_index)
     submission = last_submission(submissions)
 
     embed = discord.Embed(
         color=discord.Colour.dark_orange(),
-        title="***MEME***",
-        description=f':arrow_double_up: : {submission.ups}'
+        title="***REDDIT***",
+        description=":arrow_double_up: : " + str(submission.ups)
     )
 
-    embed.set_author(url=submission.shortlink, name=submission.title)
-    embed.set_footer(text=f'posted on r/memes    |    by u/{submission.author.name}')
-    embed.set_thumbnail(url="https://styles.redditmedia.com/t5_2qjpg/styles/communityIcon_aek5xr5qwj051.png")
-    if submission.selftext_html is None:
-        embed.set_image(url=submission.url)
-    else:
-        embed.add_field(name=submission.title, value=submission.selftext)
+
 
     await ctx.send(embed=embed)
 

@@ -5,7 +5,7 @@ from commands import cmd_elpotato, cmd_ping, cmd_8ball, \
     cmd_subreddit, cmd_ok, cmd_meme, cmd_potatos, \
     cmd_urban, cmd_die, cmd_user, cmd_bottle_flip, \
     cmd_profile_picture, cmd_rarded, cmd_genius, \
-    cmd_stick_bug, cmd_clear, cmd_help
+    cmd_stick_bug, cmd_clear, cmd_help, cmd_askreddit
 from events import member_join, member_remove, ready
 
 potato = commands.Bot(command_prefix='$')
@@ -110,3 +110,8 @@ async def stick_bug(ctx):
 @potato.command()
 async def help(ctx):
     await cmd_help.run(ctx)
+
+
+@potato.command(aliases=['ar'])
+async def askreddit(ctx):
+    await cmd_askreddit.run(ctx)
