@@ -17,10 +17,15 @@ async def run(ctx):
     embed = discord.Embed(
         color=discord.Colour.dark_orange(),
         title="***REDDIT***",
-        description=":arrow_double_up: : " + str(submission.ups)
+        description=f':arrow_double_up: {submission.ups}'
     )
 
+    comment_list = submission.num_comments
+    comment_index = randint(1, comment_list)
+    all_comments = submission.comments._comments(limit=comment_index)
+    comment = last_comment(all_comments)
 
+    embed.add_field(name='what', value=submission.comments.body)
 
     await ctx.send(embed=embed)
 
@@ -33,3 +38,10 @@ def last_submission(submissions):
             non_video_submission = submission
         pass
     return non_video_submission
+
+
+def last_comment(all_comments):
+    comment = next(all_comments)
+    for comment in all_comments:
+        pass
+    return comment
