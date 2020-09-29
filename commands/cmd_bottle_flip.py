@@ -6,7 +6,7 @@ async def run(ctx):
     random_index = randint(1, 100)
     luck = random_index
     unlucky_msg = "Too bad, landed sideways :("
-    lucky_msg = "landed the right way up! nice luck"
+    lucky_msg = "landed the right way up! very cool!"
 
     def bottle__flip():
         if luck > 15:
