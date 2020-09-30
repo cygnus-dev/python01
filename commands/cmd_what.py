@@ -7,7 +7,7 @@ async def run(ctx, inputer):
     number = random_number
 
     if int(inputer) > number:
-        ctx.send("Number too high")
+        await ctx.send("Number too high")
     else:
-        ctx.send("Number too low")
+        await ctx.send("Number too low")
 
