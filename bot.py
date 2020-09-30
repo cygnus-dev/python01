@@ -2,7 +2,7 @@ import discord
 import random
 from discord.ext import commands
 from commands import cmd_elpotato, cmd_ping, cmd_8ball, \
-    cmd_subreddit, cmd_ok, cmd_meme, cmd_potatos, \
+    cmd_subreddit, cmd_why, cmd_meme, cmd_potatos, \
     cmd_urban, cmd_die, cmd_user, cmd_bottle_flip, \
     cmd_profile_picture, cmd_rarded, cmd_genius, \
     cmd_stick_bug, cmd_clear, cmd_help, cmd_askreddit,\
@@ -79,8 +79,8 @@ async def whois(ctx, *, display_name):
 
 
 @potato.command()
-async def ok(ctx):
-    await cmd_ok.run(ctx)
+async def why(ctx):
+    await cmd_why.run(ctx)
 
 
 @potato.command(aliases=['bf'])

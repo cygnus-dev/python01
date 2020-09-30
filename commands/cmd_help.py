@@ -12,7 +12,7 @@ async def run(ctx):
                                                     `rarded`
                                                     `pp {user}`
                                                     `bf`
-                                                    `ok`
+                                                    `why`
                                                     `whois {user}`
                                                     `die`
                                                     `urban {word}`
@@ -22,7 +22,8 @@ async def run(ctx):
                                                     `clear {amount}`
                                                     `8ball {question}`
                                                     `ping`
-                                                    `patato`''')
+                                                    `patato`
+                                                    `invite`''')
 
     embed.add_field(name="__*in progress cmds*__", value='''`stick_bug`
                                                         `genius`''')
