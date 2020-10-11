@@ -4,6 +4,8 @@ import discord
 async def run(ctx, display_name):
     member = next((m for m in ctx.guild.members if m.display_name == display_name), None)
     # role = member.roles
+    # for role in member.roles:
+    #     role_v = role
 
     if member is None:
         embed = discord.Embed(
@@ -19,6 +21,9 @@ async def run(ctx, display_name):
             color=discord.Colour.dark_blue(),
             title="Member doesn't exist" if member is None else member.name,
         )
+        role_v = ""
+        for role in member.roles:
+            role_v = f'{role_v} \n @{role.name}'
 
         embed.set_thumbnail(url=member.avatar_url)
         embed.add_field(name="User ID", value=member.id)
@@ -29,10 +34,10 @@ async def run(ctx, display_name):
         embed.add_field(name="Account type", value="Bot" if member.bot else "Human")
         embed.add_field(name="Mention", value=member.mention)
         embed.add_field(name="Nick", value=member.nick)
-        # embed.add_field(name="Roles", value="")
+        embed.add_field(name="Roles", value=role_v)
         embed.add_field(name="Icon url", value=member.avatar_url)
 
     await ctx.send(embed=embed)
 
-    # def rolename(role):
-    #     for role_name in role:
+    # for role in member.roles:
+    #     print(role)
