@@ -4,7 +4,7 @@ from discord.ext import commands
 from commands import cmd_elpotato, cmd_ping, cmd_8ball, \
     cmd_subreddit, cmd_why, cmd_meme, cmd_potatos, \
     cmd_urban, cmd_die, cmd_user, cmd_bottle_flip, \
-    cmd_profile_picture, cmd_rarded, cmd_genius, \
+    cmd_profile_picture, cmd_rarded, \
     cmd_stick_bug, cmd_clear, cmd_help, cmd_askreddit,\
     cmd_what, cmd_invite
 from events import member_join, member_remove, ready
@@ -96,11 +96,6 @@ async def profile_picture(ctx, *, display_name):
 @potato.command()
 async def rarded(ctx):
     await cmd_rarded.run(ctx)
-
-
-@potato.command()
-async def genius(ctx, *, song):
-    await cmd_genius.run(ctx, song)
 
 
 @potato.command()

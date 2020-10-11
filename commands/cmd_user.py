@@ -3,14 +3,13 @@ import discord
 
 async def run(ctx, display_name):
     member = next((m for m in ctx.guild.members if m.display_name == display_name), None)
-    role = member.roles
+    # role = member.roles
 
     if member is None:
         embed = discord.Embed(
             color=discord.Colour.dark_blue(),
             title=f'Member {display_name} is not exist'
         )
-
 
     else:
         member_s_join_time = f'{member.joined_at.day}-{member.joined_at.month}-{member.joined_at.year}'
@@ -30,7 +29,7 @@ async def run(ctx, display_name):
         embed.add_field(name="Account type", value="Bot" if member.bot else "Human")
         embed.add_field(name="Mention", value=member.mention)
         embed.add_field(name="Nick", value=member.nick)
-        embed.add_field(name="Roles", value="")
+        # embed.add_field(name="Roles", value="")
         embed.add_field(name="Icon url", value=member.avatar_url)
 
     await ctx.send(embed=embed)
