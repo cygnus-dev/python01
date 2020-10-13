@@ -26,6 +26,6 @@ async def run(ctx):
                                                     `invite`''')
 
     embed.add_field(name="__*in progress cmds*__", value='''`stick_bug`
-                                                        `genius`''')
+                                                        ''')
 
     await ctx.send(embed=embed)
