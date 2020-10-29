@@ -5,14 +5,14 @@ from commands import cmd_elpotato, cmd_ping, cmd_8ball, \
     cmd_subreddit, cmd_why, cmd_meme, cmd_potatos, \
     cmd_urban, cmd_die, cmd_user, cmd_bottle_flip, \
     cmd_profile_picture, cmd_rarded, \
-    cmd_stick_bug, cmd_clear, cmd_help, cmd_askreddit,\
-    cmd_what, cmd_invite, cmd_image, cmd_wink
+    cmd_stick_bug, cmd_clear, cmd_askreddit, \
+    cmd_what, cmd_invite, cmd_image, cmd_wink, \
+    cmd_say
 from events import member_join, member_remove, ready
 
 potato = commands.Bot(command_prefix='$')
 
 
-@potato.remove_command('help')
 @potato.event
 async def on_member_join(member):
     member_join.event(member)
@@ -103,11 +103,6 @@ async def stick_bug(ctx):
     await cmd_stick_bug.run(ctx)
 
 
-@potato.command()
-async def help(ctx):
-    await cmd_help.run(ctx)
-
-
 @potato.command(aliases=['ar'])
 async def askreddit(ctx):
     await cmd_askreddit.run(ctx)
@@ -131,3 +126,11 @@ async def image(ctx):
 @potato.command()
 async def wink(ctx):
     await cmd_wink.run(ctx)
+
+
+@potato.command()
+async def say(ctx, *, input):
+    await cmd_say.run(ctx, input)
+
+
+

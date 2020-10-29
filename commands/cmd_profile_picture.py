@@ -18,5 +18,3 @@ async def run(ctx, display_name):
         embed.set_image(url=member.avatar_url)
 
     await ctx.send(embed=embed)
-
-
