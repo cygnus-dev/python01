@@ -6,7 +6,7 @@ from commands import cmd_elpotato, cmd_ping, cmd_8ball, \
     cmd_urban, cmd_die, cmd_user, cmd_bottle_flip, \
     cmd_profile_picture, cmd_rarded, \
     cmd_stick_bug, cmd_clear, cmd_help, cmd_askreddit,\
-    cmd_what, cmd_invite
+    cmd_what, cmd_invite, cmd_image, cmd_wink
 from events import member_join, member_remove, ready
 
 potato = commands.Bot(command_prefix='$')
@@ -121,3 +121,13 @@ async def what(ctx, *, inputer):
 @potato.command()
 async def invite(ctx):
     await cmd_invite.run(ctx)
+
+
+@potato.command()
+async def image(ctx):
+    await cmd_image.run(ctx)
+
+
+@potato.command()
+async def wink(ctx):
+    await cmd_wink.run(ctx)

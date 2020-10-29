@@ -1,6 +1,6 @@
 from PIL import Image
 from discord import message
-from gsbl.stick_bug import StickBug
+# from gsbl.stick_bug import StickBug
 
 
 async def run(ctx):
