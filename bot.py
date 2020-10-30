@@ -7,7 +7,7 @@ from commands import cmd_elpotato, cmd_ping, cmd_8ball, \
     cmd_profile_picture, cmd_rarded, \
     cmd_stick_bug, cmd_clear, cmd_askreddit, \
     cmd_what, cmd_invite, cmd_image, cmd_wink, \
-    cmd_say
+    cmd_say,cmd_greyscle, cmd_facts
 from events import member_join, member_remove, ready
 
 potato = commands.Bot(command_prefix='$')
@@ -132,5 +132,14 @@ async def wink(ctx):
 async def say(ctx, *, input):
     await cmd_say.run(ctx, input)
 
+
+@potato.command()
+async def greyscle(ctx, *, img):
+    await cmd_greyscle.run(ctx, img)
+
+
+@potato.command()
+async def facts(ctx):
+    await cmd_facts.run(ctx)
 
 
