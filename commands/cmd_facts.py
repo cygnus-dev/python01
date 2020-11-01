@@ -10,7 +10,7 @@ async def run(ctx):
                          client_secret=os.getenv("REDDIT_CLIENT_SECRET"),
                          user_agent="USER_AGENT")
 
-    random_index = randint(1, 50)
+    random_index = randint(1, 1000)
     memes_subreddit = reddit.subreddit("indianfactgenius")
     submissions = memes_subreddit.hot(limit=random_index)
     submission = last_submission(submissions)
