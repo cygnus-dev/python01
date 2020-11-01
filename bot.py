@@ -7,7 +7,8 @@ from commands import cmd_elpotato, cmd_ping, cmd_8ball, \
     cmd_profile_picture, cmd_rarded, \
     cmd_stick_bug, cmd_clear, cmd_askreddit, \
     cmd_what, cmd_invite, cmd_image, cmd_wink, \
-    cmd_say,cmd_greyscle, cmd_facts, cmd_lyrics
+    cmd_say, cmd_greyscle, cmd_facts, cmd_lyrics, \
+    cmd_clyrics
 
 from events import member_join, member_remove, ready
 
@@ -147,5 +148,10 @@ async def facts(ctx):
 @potato.command()
 async def lyrics(ctx, *, song):
     await cmd_lyrics.run(ctx, song)
+
+
+@potato.command()
+async def clyrics(ctx, *, music):
+    await cmd_clyrics.run(ctx, music)
 
 

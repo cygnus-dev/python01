@@ -2,11 +2,11 @@ import requests
 import discord
 from textwrap import wrap
 
-URL = 'https://some-random-api.ml/lyrics?title='
+URL = 'https://some-random-api.ml/lyrics?cancer=true&title='
 
 
-async def run(ctx, song):
-    r = requests.get(url=URL+song)
+async def run(ctx, music):
+    r = requests.get(url=URL+music)
     data = r.json()
     res = len(data['lyrics'])
 
@@ -120,4 +120,3 @@ async def run(ctx, song):
         await ctx.send(embed=embed4)
         await ctx.send(embed=embed5)
         await ctx.send(embed=embed6)
-
