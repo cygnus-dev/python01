@@ -6,7 +6,7 @@ from commands import cmd_elpotato, cmd_ping, cmd_8ball, \
     cmd_urban, cmd_die, cmd_user, cmd_bottle_flip, \
     cmd_profile_picture, cmd_rarded, \
     cmd_stick_bug, cmd_clear, cmd_askreddit, \
-    cmd_what, cmd_invite, cmd_image, cmd_wink, \
+    cmd_what, cmd_invite, cmd_wink, \
     cmd_say, cmd_greyscle, cmd_facts, cmd_lyrics, \
     cmd_clyrics, cmd_uselessfact
 

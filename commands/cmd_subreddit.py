@@ -5,6 +5,7 @@ from random import randint
 
 
 async def run(ctx, topic):
+    await ctx.send("`processing...`")
     reddit = praw.Reddit(client_id=os.getenv("REDDIT_CLIENT_ID"),
                          client_secret=os.getenv("REDDIT_CLIENT_SECRET"),
                          user_agent="USER_AGENT")
@@ -16,13 +17,13 @@ async def run(ctx, topic):
 
     embed = discord.Embed(
         color=discord.Colour.dark_orange(),
-        title="***REDDIT***",
         description=":arrow_double_up: : " + str(submission.ups)
     )
 
     embed.set_author(url=submission.shortlink, name=submission.title)
     embed.set_footer(text=f'posted on r/{topic}    |    by u/{submission.author.name}')
     embed.set_thumbnail(url=str(subreddit.collections.subreddit.community_icon))
+    await ctx.channel.purge(limit=1)
     if submission.selftext_html is None:
         embed.set_image(url=submission.url)
     else:
