@@ -8,7 +8,7 @@ from commands import cmd_elpotato, cmd_ping, cmd_8ball, \
     cmd_stick_bug, cmd_clear, cmd_askreddit, \
     cmd_what, cmd_invite, cmd_wink, \
     cmd_say, cmd_greyscle, cmd_facts, cmd_lyrics, \
-    cmd_clyrics, cmd_uselessfact
+    cmd_clyrics, cmd_uselessfact, cmd_memes
 
 from events import member_join, member_remove, ready
 
@@ -121,11 +121,6 @@ async def invite(ctx):
 
 
 @potato.command()
-async def image(ctx):
-    await cmd_image.run(ctx)
-
-
-@potato.command()
 async def wink(ctx):
     await cmd_wink.run(ctx)
 
@@ -159,3 +154,7 @@ async def clyrics(ctx, *, music):
 async def uselessfacts(ctx):
     await cmd_uselessfact.run(ctx)
 
+
+@potato.command()
+async def memes(ctx):
+    await cmd_memes.run(ctx)
