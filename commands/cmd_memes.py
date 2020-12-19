@@ -17,7 +17,7 @@ async def run(ctx, amount):
     next(list_iterator)
     next(list_iterator)
     
-    memes_time = 30 * int(amount)
+    memes_time = 30 * (int(amount)- 3)
     
     await ctx.send(f'this commadn will go on for {memes_time} seconds')
     
@@ -28,3 +28,5 @@ async def run(ctx, amount):
         embed.set_image(url=submission.url)
         await ctx.send(embed=embed)
         time.sleep(30)
+    
+    await ctx.send("`yeah its over`")
