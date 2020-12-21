@@ -21,7 +21,7 @@ async def run(ctx, subreddit):
 
     for submission in submissions:
         url_array.append(submission.url)
-    
+        
     memes_time = 30 * (100 - 3)
     
     await ctx.send(f'this commadn will go on for {memes_time} seconds')
@@ -30,7 +30,7 @@ async def run(ctx, subreddit):
         embed = discord.Embed(
             color = discord.Colour.dark_orange()
         )
-        embed.set_image(url=submission.url)
+        embed.set_image(url=url)
         await ctx.send(embed=embed)
         time.sleep(30)
     
