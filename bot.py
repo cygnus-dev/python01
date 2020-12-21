@@ -157,8 +157,8 @@ async def uselessfacts(ctx):
 
 
 @potato.command()
-async def memes(ctx, *, amount):
-    await cmd_memes.run(ctx, amount)
+async def memes(ctx, *, count):
+    await cmd_memes.run(ctx, count)
 
 
 @potato.command()
