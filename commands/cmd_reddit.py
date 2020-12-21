@@ -17,11 +17,16 @@ async def run(ctx, subreddit):
     next(list_iterator)
     next(list_iterator)
     
+    url_array = []
+
+    for submission in submissions:
+        url_array.append(submission.url)
+    
     memes_time = 30 * (100 - 3)
     
     await ctx.send(f'this commadn will go on for {memes_time} seconds')
     
-    for submission in submissions:        
+    for url in url_array:        
         embed = discord.Embed(
             color = discord.Colour.dark_orange()
         )
