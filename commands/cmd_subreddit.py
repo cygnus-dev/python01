@@ -5,8 +5,10 @@ from random import randint
 
 
 async def run(ctx, topic):
+    await ctx.send("`processing...`")
     submissions = get_submission(topic)
     submission = last_submission(submissions)
+    await ctx.channel.purge(limit=1)
     await send_submission(ctx, submission, topic)
 
 def get_submission(topic):

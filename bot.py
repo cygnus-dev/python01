@@ -100,11 +100,6 @@ async def rarded(ctx):
     await cmd_rarded.run(ctx)
 
 
-@potato.command()
-async def stick_bug(ctx):
-    await cmd_stick_bug.run(ctx)
-
-
 @potato.command(aliases=['ar'])
 async def askreddit(ctx):
     await cmd_askreddit.run(ctx)

@@ -7,7 +7,7 @@ import time
 NO_OF_ELEMENTS_REMOVE = 3
 
 async def run(ctx, subreddit):
-    submissions = get_submissions()
+    submissions = get_submissions(subreddit)
     remove_admin_messages(submissions)
     urls = get_valid_urls(submissions)
 
@@ -16,11 +16,11 @@ async def run(ctx, subreddit):
     await ctx.send("`yeah its over`")
 
 
-def get_submissions():
+def get_submissions(subreddit):
     reddit = praw.Reddit(client_id=os.getenv("REDDIT_CLIENT_ID"),
             client_secret=os.getenv("REDDIT_CLIENT_SECRET"),
             user_agent="USER_AGENT")
-    return reddit.subreddit("memes").hot(limit=100)
+    return reddit.subreddit(subreddit).hot(limit=100)
 
 
 async def send_submissions(ctx, urls):
