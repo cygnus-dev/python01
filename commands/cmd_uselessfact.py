@@ -6,13 +6,7 @@ URL = 'https://uselessfacts.jsph.pl/random.json?language=en'
 
 
 async def run(ctx):
-    test_msg = "ah yes"
-    compile_msg = await ctx.send('`compiling python... /`')
-    for i in range(10):
-        await compile_msg.edit(content="`compiling python... \`")
-        time.sleep(0.25)
-        await compile_msg.edit(content="`compiling python... /`")
-        time.sleep(0.25)
+    await ctx.send('`processing`')
     r = requests.get(url=URL)
     data = r.json()
 

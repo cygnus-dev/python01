@@ -7,25 +7,7 @@ from random import randint
 async def run(ctx, topic):
     submissions = get_submission(topic)
     submission = last_submission(submissions)
-
-    embed = discord.Embed(
-        color=discord.Colour.dark_orange(),
-        description=":arrow_double_up: : " + str(submission.ups)
-    )
-
-    embed.set_author(url=submission.shortlink, name=submission.title)
-    embed.set_footer(text=f'posted on r/{topic}    |    by u/{submission.author.name}')
-    await ctx.channel.purge(limit=1)
-    if submission.selftext_html is None:
-        embed.set_image(url=submission.url)
-    else:
-        embed.add_field(name=submission.title, value=submission.selftext)
-
-    if submission.over_18:
-        await ctx.send("**dis over 18 ma dude**")
-    else:
-        await ctx.send(embed=embed)
-
+    await send_submission(ctx, submission, topic)
 
 def get_submission(topic):
     reddit = praw.Reddit(client_id=os.getenv("REDDIT_CLIENT_ID"),
@@ -45,3 +27,17 @@ def last_submission(submissions):
             non_video_submission = submission
         pass
     return non_video_submission
+
+
+async def send_submission(ctx, submission, topic):
+    embed = discord.Embed(
+        color=discord.Colour.dark_orange(),
+        description=":arrow_double_up: : " + str(submission.ups)
+    )
+    embed.set_author(url=submission.shortlink, name=submission.title)
+    embed.set_footer(text=f'posted on r/{topic}    |    by u/{submission.author.name}')
+    if submission.selftext_html is None:
+        embed.set_image(url=submission.url)
+    else:
+        embed.add_field(name=submission.title, value=submission.selftext)
+    await ctx.send(embed=embed)

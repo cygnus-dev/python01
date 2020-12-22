@@ -3,10 +3,7 @@ import discord
 
 async def run(ctx, display_name):
     member = next((m for m in ctx.guild.members if m.display_name == display_name), None)
-    # role = member.roles
-    # for role in member.roles:
-    #     role_v = role
-
+    #this cmd is compleylt broken
     if member is None:
         embed = discord.Embed(
             color=discord.Colour.dark_blue(),

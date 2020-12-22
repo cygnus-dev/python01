@@ -5,11 +5,10 @@ from commands import cmd_elpotato, cmd_ping, cmd_8ball, \
     cmd_subreddit, cmd_why, cmd_meme, cmd_potatos, \
     cmd_urban, cmd_die, cmd_user, cmd_bottle_flip, \
     cmd_profile_picture, cmd_rarded, \
-    cmd_stick_bug, cmd_clear, cmd_askreddit, \
+    cmd_clear, cmd_askreddit, cmd_reddit, \
     cmd_what, cmd_invite, cmd_wink, \
     cmd_say, cmd_greyscle, cmd_facts, cmd_lyrics, \
-    cmd_clyrics, cmd_uselessfact, cmd_memes, \
-    cmd_reddit
+    cmd_clyrics, cmd_uselessfact, cmd_memes \
 
 from events import member_join, member_remove, ready
 
