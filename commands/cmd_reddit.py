@@ -20,7 +20,7 @@ def get_submissions():
     reddit = praw.Reddit(client_id=os.getenv("REDDIT_CLIENT_ID"),
             client_secret=os.getenv("REDDIT_CLIENT_SECRET"),
             user_agent="USER_AGENT")
-    submissions =  reddit.subreddit("memes").hot(limit=100)
+    return reddit.subreddit("memes").hot(limit=100)
 
 
 async def send_submissions(ctx, urls):

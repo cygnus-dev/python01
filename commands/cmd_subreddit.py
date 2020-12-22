@@ -5,14 +5,7 @@ from random import randint
 
 
 async def run(ctx, topic):
-    await ctx.send("`processing...`")
-    reddit = praw.Reddit(client_id=os.getenv("REDDIT_CLIENT_ID"),
-                         client_secret=os.getenv("REDDIT_CLIENT_SECRET"),
-                         user_agent="USER_AGENT")
-
-    random_index = randint(1, 200)
-    subreddit = reddit.subreddit(topic)
-    submissions = subreddit.hot(limit=random_index)
+    submissions = get_submission(topic)
     submission = last_submission(submissions)
 
     embed = discord.Embed(
@@ -22,7 +15,6 @@ async def run(ctx, topic):
 
     embed.set_author(url=submission.shortlink, name=submission.title)
     embed.set_footer(text=f'posted on r/{topic}    |    by u/{submission.author.name}')
-    embed.set_thumbnail(url=str(subreddit.collections.subreddit.community_icon))
     await ctx.channel.purge(limit=1)
     if submission.selftext_html is None:
         embed.set_image(url=submission.url)
@@ -33,6 +25,16 @@ async def run(ctx, topic):
         await ctx.send("**dis over 18 ma dude**")
     else:
         await ctx.send(embed=embed)
+
+
+def get_submission(topic):
+    reddit = praw.Reddit(client_id=os.getenv("REDDIT_CLIENT_ID"),
+                         client_secret=os.getenv("REDDIT_CLIENT_SECRET"),
+                         user_agent="USER_AGENT")
+
+    random_index = randint(1, 200)
+    subreddit = reddit.subreddit(topic)
+    return subreddit.hot(limit=random_index)
 
 
 def last_submission(submissions):
