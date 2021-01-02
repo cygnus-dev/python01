@@ -7,12 +7,13 @@ import time
 NO_OF_ELEMENTS_REMOVE = 3
 
 async def run(ctx, count):
+    await ctx.send("`processing...`")
     submissions = get_submissions(count)
     remove_admin_messages(submissions)    
     urls = get_valid_urls(submissions)
     
     memes_time = 5 * (int(count)- 3)
-    
+    await ctx.channel.purge(limit=1)
     await ctx.send(f'this commadn will go on for {memes_time} seconds')
     await send_submissions(ctx, urls)
     await ctx.send("`yeah its over`")

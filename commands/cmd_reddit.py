@@ -7,9 +7,11 @@ import time
 NO_OF_ELEMENTS_REMOVE = 3
 
 async def run(ctx, subreddit):
+    await ctx.send("`processing...`")
     submissions = get_submissions(subreddit)
     remove_admin_messages(submissions)
     urls = get_valid_urls(submissions)
+    await ctx.channel.purge(limit=1)
 
     await ctx.send('this commadn will go on for 8~ minutes')
     await send_submissions(ctx, urls)
