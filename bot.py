@@ -8,7 +8,8 @@ from commands import cmd_elpotato, cmd_ping, cmd_8ball, \
     cmd_clear, cmd_askreddit, cmd_reddit, \
     cmd_what, cmd_invite, cmd_wink, \
     cmd_say, cmd_greyscle, cmd_facts, cmd_lyrics, \
-    cmd_clyrics, cmd_uselessfact, cmd_memes \
+    cmd_clyrics, cmd_uselessfact, cmd_memes, \
+    cmd_stats
 
 from events import member_join, member_remove, ready
 
@@ -158,3 +159,8 @@ async def memes(ctx, *, count):
 @potato.command()
 async def reddit(ctx, *, subreddit):
     await cmd_reddit.run(ctx, subreddit)
+
+
+@potato.command()
+async def stats(ctx):
+    await cmd_stats.run(ctx)
